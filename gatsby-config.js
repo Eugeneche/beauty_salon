@@ -9,13 +9,14 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Beauty salon`,
+    description: `Beauty Salon provides Waxing, Laser Hair Removal, Massage, Facials, Manicure, Pedicure, Threading, Eyelash Extension, Tinting, Spray Tan, Body Scrub.`,
+    author: `@eugeneche`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
     `gatsby-plugin-image`,
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -23,8 +24,17 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `promo`,
+        path: `${__dirname}/data/promo`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sass`,
+    `gatsby-transformer-excel`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

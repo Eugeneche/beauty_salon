@@ -1,0 +1,46 @@
+@import '../../styles/vars';
+
+.footer {
+    /* height: 100px; */
+    background: #d8d3c6;
+}
+
+.container {
+    max-width: $contentContainer;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.footer-menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+
+    .footer-menu-column {
+        display: grid;
+        grid-template-rows: 40px auto;
+
+        .logo {
+            height: 100%;
+        }
+
+        h4 {
+            align-self: center;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        p:nth-child(2) {
+            margin-top: 10px;
+        }
+    }
+
+    .footer-menu-column:nth-child(2) {
+
+        p:nth-child(4) {
+            margin-top: 15px;
+        }
+    }
+}
