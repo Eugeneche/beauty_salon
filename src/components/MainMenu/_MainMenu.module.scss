@@ -11,15 +11,52 @@ nav {
     position: absolute;
     height: 80px;
     align-content: center;
+    z-index: 10;
 
     .items {
         display: flex;
 
-        .item, a {
+        .services, a {
             font-weight: 300;
             text-transform: uppercase;
             margin-right: 10px;
         }
+
+        .services {
+
+            ul.services-categories {
+                display: none;
+                position: relative;
+                
+            }
+        }
+
+        .services:hover {
+            
+            ul.services-categories {
+                position: absolute;
+            display: block;
+            margin: 0;
+            padding-bottom: 5px;
+            background: #ffffffc9;
+            
+
+            li {
+                width: max-content;
+                margin: 2px 5px;
+                list-style: none;
+                
+            }
+
+            a {
+                font-weight: 300;
+                font-size: 14px;
+                text-decoration: none;
+            }
+            }
+        }
+
+
     }
 
     .logo {

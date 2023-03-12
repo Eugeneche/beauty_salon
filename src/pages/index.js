@@ -16,7 +16,9 @@ import barbershop from "../images/barbershop.png"
 
 const IndexPage = (data) => {
   
-  console.log(data.data.allPrXlsxPromo.nodes)
+  const promoDateRange = data.data.allPrXlsxPromo.nodes[0]
+  const promoPoints = data.data.allPrXlsxPromo.nodes.filter((el, i) => i !== 0)
+  
   return (
     <>
       <MainMenu />
@@ -85,9 +87,7 @@ const IndexPage = (data) => {
         <div className={styles.promo}>         
           <div className={styles.promoBackground}>
 
-            <div className={styles.promoInfo}>
 
-            </div>
           </div>
           <StaticImage 
             className={styles.promoPhoto}
@@ -95,6 +95,21 @@ const IndexPage = (data) => {
             alt="hairstyle"
             height={700}
           />
+          <div className={styles.promoInfo}>
+            <h3 className={styles.promoTitle}>Special offers</h3>
+            <div className={styles.promoPeriod}>promotion period: {promoDateRange.Time_range}</div>
+            {/* <div className={styles.servicesGrid}> */}
+              {promoPoints.map(point => {
+                return (
+                  <div className={styles.promoServicesGrid} key={point.id}>
+                    <div className={styles.promoService}>{point.Service}</div>
+                    <div className={styles.promoRegularPrice}>{point.Regular_price}</div>
+                    <div className={styles.promoCurrentPrice}>{point.Current_price}</div>
+                  </div>
+                )
+              })}
+            {/* </div> */}
+          </div>
         </div>
       </Layout>
     </>
@@ -121,6 +136,7 @@ export const query = graphql`
         Regular_price
         Service
         Time_range
+        id
       }
     }
   }
