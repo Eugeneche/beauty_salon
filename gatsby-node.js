@@ -37,24 +37,21 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   const projects = await graphql(`
-  query getProject {
-    allFile(filter: {sourceInstanceName: {eq: "categories"}, name: {eq: "project"}}) {
-      nodes {
-        relativeDirectory
-        id
-        childMdx {
+    query getProject {
+      allFile(filter: {sourceInstanceName: {eq: "categories"}, name: {eq: "project"}}) {
+        nodes {
+          relativeDirectory
           id
-          internal {
-            contentFilePath
+          childMdx {
+            id
+            internal {
+              contentFilePath
+            }
           }
         }
       }
     }
-  }
   `)
-
-  //console.log(data) 
-  //console.log(projects) 
 
   data?.allFile?.nodes?.forEach(category => {
 
@@ -73,6 +70,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
     const directory = project.relativeDirectory
     const mdxId = project.childMdx.id
+    //const p = path
+    //const projectTitle = path.basename(path)
     const modifiedSlug = project.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()
     const projectTemplate = path.resolve(`./src/templates/item-service-template.js`)
     actions.createPage({

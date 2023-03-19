@@ -22,8 +22,8 @@ const About = () => {
           height={400}
           style={{width: "100%", marginBottom: "50px"}}
         />
-        {/* <div className={styles.gap}></div> */}
-        <div className={styles.container}>
+
+        <div className={[styles.container, styles.about].join(' ')}>
           <h1>About us</h1>
 
           <p>Welcome to Sophie, the premier beauty salon where we bring out the beauty in you. Our salon offers an array of services including hair cutting, hair styling, manicure, and pedicure. Our experienced team of professionals are passionate about making our clients look and feel their best.</p>

@@ -118,6 +118,15 @@
 }
 
 /* PAGES */
+/* about */
+
+.about {
+
+    p {
+        margin-bottom: 20px;
+    }
+}
+/* end of about */
 /* contacts */
 
 .contacts-block {
@@ -139,14 +148,20 @@
 /* category template */
 
 .category-services-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: 15% 82%;
+    column-gap: 3%;
 
-    .service-list {
+/*     .service-list {
         width: 30%;
+    }
+ */
+    .service-title {
+        text-align: center;
+        margin: 5px 0 25px;
     }
 
     .service-description {
-        width: 70%;
 
         p {
             margin: 20px 0;
@@ -157,6 +172,28 @@
 /* end of category template */
 
 /* service template */
+
+.subservices-grid {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    gap: 30px 4%;
+
+    .subservice-item {
+        position: relative;
+
+        .subservice-name {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffffff;
+            font-size: 30px;
+            background: #cf666680;
+            padding: 0 12px;
+            border-radius: 8px;
+        }
+    }
+}
 
 .service-description {
 
