@@ -1,5 +1,5 @@
 import * as React from "react"
-//import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
@@ -8,10 +8,8 @@ import MainMenu from "../components/MainMenu/MainMenu"
 
 import * as styles from "../styles/_index.module.scss"
 
-
-
-const About = () => {
-  
+const About = ({data}) => {
+  console.log(data.allFile.nodes)
   return (
     <>
       <MainMenu />
@@ -34,15 +32,54 @@ const About = () => {
           <p>If you are looking for a beauty salon that offers the best in hair, nails, and beauty services, then look no further than Sophie. Contact us today to schedule an appointment and experience the difference that our salon can make in your life.</p>
 
         </div>
+        <div className={styles.blog}>
+          <div className={styles.container}>
+            <StaticImage 
+              src="../../data/blog/hairdresser.jpg"
+              alt="hairdresser with client"
+              className={styles.blogImageContainer}
+              imgClassName={styles.blogImage}
+            />
+            <div className={styles.blogNews}>
+              <h3>News & Deals</h3>
+
+              {data.allFile.nodes.map(newsItem => {
+                console.log(newsItem.childMdx.frontmatter.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").replace(/[","]/g, "").toLowerCase())
+                return (
+                  <>
+                    <Link key={newsItem.childMdx.id} to={newsItem.childMdx.frontmatter.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").replace(/[","]/g, "").toLowerCase()}>
+                      <h4>{newsItem.childMdx.frontmatter.title}</h4>                   
+                    </Link>
+                    <p className={styles.blogNewsDate}>{newsItem.childMdx.frontmatter.date}</p>
+                  </>
+                )
+              })}
+            </div>
+          </div>
+        </div>
       </Layout>
     </>
 )}
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = () => <Seo title="Home" />
+export const Head = () => <Seo title="About us" />
 
 export default About
+
+export const query = graphql`
+query {
+  allFile(filter: {sourceInstanceName: {eq: "blog"}, extension: {eq: "mdx"}}) {
+    nodes {
+      childMdx {
+        frontmatter {
+          title
+          date(formatString: "MMMM D, YYYY")
+        }
+        id
+        internal {
+          contentFilePath
+        }
+      }
+    }
+  }
+}
+`

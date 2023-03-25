@@ -16,12 +16,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-image`,
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        extensions: [`.mdx`, `.md`],
-      },
-    },
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -32,8 +27,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `promo`,
-        path: `${__dirname}/data/promo`,
+        name: `blog`,
+        path: `${__dirname}/data/blog`,
       },
     },
     {
@@ -49,14 +44,7 @@ module.exports = {
         name: `categories`,
         path: `${__dirname}/data/categories`,
       },
-    },    
-/*     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `services`,
-        path: `${__dirname}/data/services`,
-      },
-    }, */
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,

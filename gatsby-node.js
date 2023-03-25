@@ -53,6 +53,25 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
+  const news = await graphql(`
+    query getNews {
+      allFile(filter: {sourceInstanceName: {eq: "blog"}, extension: {eq: "mdx"}}) {
+        nodes {
+          childMdx {
+            frontmatter {
+              title
+              date(formatString: "MMMM D, YYYY")
+            }
+            id
+            internal {
+              contentFilePath
+            }
+          }
+        }
+      }
+    }
+  `)
+
   data?.allFile?.nodes?.forEach(category => {
 
     const directory = category.relativeDirectory
@@ -66,18 +85,28 @@ exports.createPages = async ({ graphql, actions }) => {
       })
   })
 
-    projects?.data?.allFile?.nodes?.forEach(project => {
+  projects?.data?.allFile?.nodes?.forEach(project => {
 
     const directory = project.relativeDirectory
     const mdxId = project.childMdx.id
-    //const p = path
-    //const projectTitle = path.basename(path)
     const modifiedSlug = project.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()
     const projectTemplate = path.resolve(`./src/templates/item-service-template.js`)
     actions.createPage({
       path: modifiedSlug,
       component: `${projectTemplate}?__contentFilePath=${project.childMdx.internal.contentFilePath}`,
       context: { directory, mdxId }
+    })
+  })
+
+  news?.data?.allFile?.nodes?.forEach(newsItem => {
+
+    const mdxId = newsItem.childMdx.id
+    const modifiedSlug = `about/${newsItem.childMdx.frontmatter.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").replace(/[","]/g, "").toLowerCase()}`
+    const projectTemplate = path.resolve(`./src/templates/news.js`)
+    actions.createPage({
+      path: modifiedSlug,
+      component: `${projectTemplate}?__contentFilePath=${newsItem.childMdx.internal.contentFilePath}`,
+      context: { mdxId }
     })
   })
 }

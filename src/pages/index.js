@@ -30,17 +30,17 @@ const IndexPage = (data) => {
             <div className={styles.serviceIcon}>
               <img src={hair} alt="hair"></img>
               <h4>Hair styling</h4>
-              <p>Lorem ipsum dolor amet, consect risu adipiscing elit do</p>
+              <p>Transform Your Look with Expert Hair Styling Services. We've Got You Covered.</p>
             </div>
             <div className={styles.serviceIcon}>
               <img src={nails_polish} alt="nails"></img>
               <h4>Nail treatments</h4>
-              <p>Lorem ipsum dolor amet, consect risu adipiscing elit do</p>
+              <p>Pamper Your Nails with Our Luxurious Treatments. From Manicures to Pedicures. Book now!</p>
             </div>
             <div className={styles.serviceIcon}>
               <img src={barbershop} alt="barbershop"></img>
               <h4>Barbershop</h4>
-              <p>Lorem ipsum dolor amet, consect risu adipiscing elit do</p>
+              <p>Get the Perfect Cut and Style at Our Barbershop. From Classic to Modern, We Cater to All.</p>
             </div>
           </div>
 

@@ -13,11 +13,6 @@ const ItemServiceTemplate = ({data, children, pageContext}) => {
   const image = getImage(data.mdx.frontmatter.header_image.childImageSharp.gatsbyImageData)
   const subservices = data.allFile.nodes || null
 
-  //console.log(subservices)
-
-  //console.log(children)
-  console.log(pageContext.mdxId)
-  console.log(pageContext.directory)
   return (
     <>
       <MainMenu />
@@ -25,10 +20,10 @@ const ItemServiceTemplate = ({data, children, pageContext}) => {
         <GatsbyImage 
           image={image}
           alt="hairstyle"
-          style={{width: "100%", maxHeight: "400px", marginBottom: "50px"}}
+          style={{width: "100%", maxHeight: "500px", marginBottom: "50px"}}
         />
         <div className={styles.container}>
-          <h1>Service {pageContext.frontmatter.title}</h1>
+          <h1>{pageContext.frontmatter.title}</h1>
           <div className={styles.subservicesGrid}>
             {subservices && 
               subservices.map(subservice => {
@@ -39,7 +34,7 @@ const ItemServiceTemplate = ({data, children, pageContext}) => {
                       image={getImage(subservice.childImageSharp.gatsbyImageData)}
                       alt={`${subservice.name} image`}
                     />
-                    <h3 className={styles.subserviceName}>{subservice.name}</h3>
+                    <p className={styles.subserviceName}>{subservice.name}</p>
                   </div>
                 )
               })
@@ -69,7 +64,6 @@ query ($mdxId: String!, $directory: String!) {
       }
       order
       title
-      subservices
     }
     body
   }

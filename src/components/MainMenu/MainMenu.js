@@ -36,9 +36,10 @@ const MainMenu = () => {
               })}
             </ul>
           </div>
+          <NavLink className={styles.item} to="/prices">prices</NavLink>
           <NavLink className={styles.item} to="/contacts">contacts</NavLink>
       </div>
-      <img className={styles.logo} src={logo} alt="logo"></img>
+      <Link className={styles.logo} to="/"><img src={logo} alt="logo"></img></Link>
     </nav>
   )
 }

@@ -14,7 +14,7 @@ const CategoryTemplate = ({data, children, pageContext}) => {
   const directory = new RegExp(`${pageContext.directory}`)
   const nestedProjects = data.allFile.nodes.filter(node => directory.test(node.relativeDirectory))
 
-  console.log(directory)
+  //console.log(directory)
   //console.log(path)
   return (
     <>
