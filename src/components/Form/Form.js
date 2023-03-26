@@ -20,14 +20,14 @@ const Form = () => {
   return (
     <form className={styles.form} ref={form} onSubmit={sendEmail}>
         <div className={styles.fields}>
-            <label>name</label>
-            <input type="text" name="user_name" placeholder="your name" required />
-            <label>phone</label>
+            <label htmlFor="user_name">name</label>
+            <input type="text" id="user_name" name="user_name" placeholder="your name" required />
+            <label htmlFor="user_phone">phone</label>
             <input type="tel" id="user_phone" name="user_phone" placeholder="your phone" required></input>
-            <label>email</label>
-            <input type="email" name="user_email" placeholder="your email" required />
-            <label>message</label>
-            <textarea name="message" placeholder="your message" required />
+            <label htmlFor="user_email">email</label>
+            <input type="email" id="user_email" name="user_email" placeholder="your email" required />
+            <label htmlFor="message">message</label>
+            <textarea id="message" name="message" placeholder="your message" required />
         </div>
         <div className={styles.submit}>
             <input type="submit" value="Send" />

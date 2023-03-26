@@ -1,10 +1,13 @@
-import * as React from "react"
+import React, { useState } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import * as styles from "./_MainMenu.module.scss"
 import NavLink from "./NavLink"
 import logo from "../../images/logo_black.svg"
+import hamburger from "../../images/menu.svg"
 
 const MainMenu = () => {
+
+  const [isShow, setIsShow] = useState(false)
 
   const data = useStaticQuery(graphql`
     query getCategoriesForMenu {
@@ -20,27 +23,53 @@ const MainMenu = () => {
 
   const servicesCategories = data.allFile.nodes
 
-  //console.log(servicesCategories)
-
   return (
-    <nav>
-      <div className={styles.items}>
-          <NavLink className={styles.item} to="/">HOME</NavLink>
-          <NavLink className={styles.item} to="/about">about</NavLink>
+    <>
+      <nav className={styles.desktopMenu}>
+        <div className={styles.items}>
+          <NavLink to="/">HOME</NavLink>
+          <NavLink to="/about">about</NavLink>
           <div className={styles.services}>
             services
             <ul className={styles.servicesCategories}>
               {servicesCategories.map(cat => {
                 const url = cat.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()
-                return <li key={cat.relativeDirectory} className={styles.category}><Link to={"/"+url}>{cat.relativeDirectory}</Link></li>
+                return <li key={cat.relativeDirectory}><Link to={"/"+url}>{cat.relativeDirectory}</Link></li>
               })}
             </ul>
           </div>
-          <NavLink className={styles.item} to="/prices">prices</NavLink>
-          <NavLink className={styles.item} to="/contacts">contacts</NavLink>
+          <NavLink to="/prices">prices</NavLink>
+          <NavLink to="/contacts">contacts</NavLink>
+        </div>
+        <Link className={styles.logo} to="/"><img src={logo} alt="logo"></img></Link>
+      </nav>
+      
+      <div className={styles.shadow} style={isShow ? {display: "block"} : {display: "none"}}>
+        <nav className={styles.mobileMenuBackground}>
+        <div className={styles.items}>
+          <NavLink to="/">HOME</NavLink>
+          <NavLink to="/about">about</NavLink>
+          <div className={styles.services}>
+            services
+            <ul className={styles.servicesCategories}>
+              {servicesCategories.map(cat => {
+                const url = cat.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()
+                return <li key={cat.relativeDirectory}><Link to={"/"+url}>{cat.relativeDirectory}</Link></li>
+              })}
+            </ul>
+          </div>
+          <NavLink to="/prices">prices</NavLink>
+          <NavLink to="/contacts">contacts</NavLink>
+        </div>
+        <Link className={styles.logo} to="/"><img src={logo} alt="logo"></img></Link>
+        </nav>
       </div>
-      <Link className={styles.logo} to="/"><img src={logo} alt="logo"></img></Link>
-    </nav>
+
+      <nav className={styles.mobileMenu}>
+        <Link className={styles.logo} to="/"><img src={logo} alt="logo"></img></Link>
+        <img src={hamburger} alt="hamburger menu icon"></img>
+      </nav>
+    </>
   )
 }
 

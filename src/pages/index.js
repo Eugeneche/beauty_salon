@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
@@ -59,7 +59,9 @@ const IndexPage = (data) => {
                 className={styles.serviceImage}
                 src="../images/eyelash_extensions.jpg"
                 alt="Eyelash Extensions"
+                style={{width: "100%", height: "100%"}}
                 aspectRatio={1/1}
+                
               />
               <h3>Eyelash Extensions</h3>
             </div>
@@ -96,7 +98,7 @@ const IndexPage = (data) => {
             height={700}
           />
           <div className={styles.promoInfo}>
-            <h3 className={styles.promoTitle}>Special offers</h3>
+            <h3>Special offers</h3>
             <div className={styles.promoPeriod}>promotion period: {promoDateRange.Time_range}</div>
             {/* <div className={styles.servicesGrid}> */}
               {promoPoints.map(point => {

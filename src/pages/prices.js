@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
@@ -13,7 +13,7 @@ const Prices = ({data}) => {
 
   const listOfServices = data.file.childrenPriceXlsxServices
   const typesOfServices =  Array.from(new Set(listOfServices.map((obj) => obj.Type)))
-  //console.log(typesOfServices)
+
   return (
     <>
       <MainMenu />

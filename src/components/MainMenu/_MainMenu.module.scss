@@ -1,6 +1,6 @@
 @import '../../styles/vars';
 
-nav {
+.desktop-menu {
     display: grid;
     grid-template-columns: min-content auto;
     max-width: $menuContainer;
@@ -35,10 +35,10 @@ nav {
             
             ul.services-categories {
                 position: absolute;
-            display: block;
-            margin: 0;
-            padding-bottom: 5px;
-            background: #ffffffc9;
+                display: block;
+                margin: 0;
+                padding-bottom: 5px;
+                background: #ffffffc9;
             
 
             li {
@@ -55,13 +55,48 @@ nav {
             }
             }
         }
-
-
     }
 
     .logo {
         position: absolute;
         justify-self: center;
         align-self: center;
+    }
+}
+
+/* MOBILE */
+
+.mobile-menu {
+    display: none;
+}
+
+.shadow {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #2b2b2b67;
+    z-index: 10;
+}
+
+@media screen and (max-width: 1100px) {
+    
+    .container {
+        padding: 0 20px;
+    }
+
+    .desktop-menu {
+        display: none;
+    }
+
+    .mobile-menu {
+        position: absolute;
+        display: flex;
+        top: 20px;
+        left: 5%;
+        right: 5%;
+        height: 50px;
+        justify-content: space-between;
     }
 }

@@ -11,7 +11,7 @@
 
     .header-image {
         position: absolute;
-        width: 800px;
+        max-width: 800px;
         top: 300px;
         left: 0;
         right: 0;
@@ -30,5 +30,34 @@
         font-size: 90px;
         text-align: center;
         font-family: 'Marcellus', serif;
+    }
+}
+
+/* ================ */
+
+/* MOBILE */
+
+@media screen and (max-width: 1100px) {
+    
+    .header-image {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    
+    .header {
+        height: calc(400px + 44vw);
+
+        .background {
+            width: 100%;
+            height: calc(300px + 40vw);
+            background: #fffcf0;
+        }
+
+        .hero {
+            width: 100%;
+            font-size: 9vw;
+        }
     }
 }

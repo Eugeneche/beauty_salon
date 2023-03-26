@@ -28,7 +28,7 @@ const CategoryTemplate = ({data, children, pageContext}) => {
         <div className={styles.container}>
           <h1>{pageContext.directory}</h1>
           <div className={styles.categoryServicesGrid}>
-            <div className={styles.serviceList}>
+            <div>
               {nestedProjects.map(project => {
                 return (
                   <div key={project.id}>
