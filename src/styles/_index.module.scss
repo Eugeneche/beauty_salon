@@ -27,7 +27,6 @@
 }
 
 .services-images {
-    /* width: 100%; */
     margin: auto;
     display: flex;
 
@@ -90,14 +89,12 @@
     }
 
     .promo-services-grid {
-        /* display: flex; */
         display: grid;
         grid-template-columns: 1fr auto auto;
         gap: 8px;
         height: fit-content;
         align-content: center;
         margin-bottom: 8px;
-        /* flex-wrap: wrap; */
 
         .promo-service {
             max-width: 300px;
@@ -105,7 +102,6 @@
         }
 
         .promo-regular-price {
-            /* width: 80px; */
             color: #d3d3d3;
             text-decoration: line-through;
             font-weight: 600;
@@ -115,7 +111,6 @@
         }
 
         .promo-current-price {
-            /* width: 80px; */
             font-weight: 600;
             font-style: italic;
             text-align: right;
@@ -361,12 +356,87 @@
 
 @media screen and (max-width: 760px) {
 
+    .service-icon {
+
+        p {
+            font-size: 14px;
+        }
+    }
+
     .services-images {
         display: grid;
         grid-template-columns: 50% 50%;
 
         .service-image-item {
             width: 100%;
+
+            h3 {
+                margin: 10px 0 30px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 568px) {
+
+    .services-icons {
+        flex-flow: column;
+        max-width: 80%;
+        height: fit-content;
+        margin-bottom: 40px;
+
+        .service-icon {
+            width: 100%;
+            margin: 0 auto 20px;
+
+            h4 {
+                margin: 10px 0;
+            }
+        }
+    }
+
+    .promo {
+        display: grid;
+        height: fit-content;
+        margin-bottom: 0;
+        padding-bottom: 50px;
+
+        .promo-background {
+            width: 100%;
+        }
+    
+        .promo-photo {
+            position: relative;
+            width: 100%;
+            height: auto;
+            margin-top: 40px;
+
+            img {
+                height: auto;
+            }
+        }
+
+        .promo-info {
+            position: relative;
+            left: 0;
+            height: fit-content;
+            padding: 0 5%;
+            z-index: 2;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    
+    .services-images {
+        display: grid;
+        grid-template-columns: 100%;
+
+        .service-image-item {
+            width: 95%;
+            margin: auto;
+
+
         }
     }
 }

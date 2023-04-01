@@ -55,3 +55,15 @@
         padding: 20px;
     }
 }
+
+@media screen and (max-width: 640px) {
+
+    .container {
+        width: 75%;
+
+        .footer-menu {
+            grid-template-columns: 1fr;
+            row-gap: 15px;
+        }
+    }
+}

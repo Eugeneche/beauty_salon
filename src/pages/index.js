@@ -51,6 +51,7 @@ const IndexPage = (data) => {
                 src="../images/makeup.jpg"
                 alt="make up"
                 aspectRatio={1/1}
+                layout="fullWidth"
               />
               <h3>Make up</h3>
             </div>
@@ -59,9 +60,8 @@ const IndexPage = (data) => {
                 className={styles.serviceImage}
                 src="../images/eyelash_extensions.jpg"
                 alt="Eyelash Extensions"
-                style={{width: "100%", height: "100%"}}
                 aspectRatio={1/1}
-                
+                layout="fullWidth"
               />
               <h3>Eyelash Extensions</h3>
             </div>
@@ -71,6 +71,7 @@ const IndexPage = (data) => {
                 src="../images/skin_treatment.jpg"
                 alt="skin treatment"
                 aspectRatio={1/1}
+                layout="fullWidth"
               />
               <h3>Skin treatment</h3>
             </div>
@@ -80,6 +81,7 @@ const IndexPage = (data) => {
                 src="../images/pedicure.jpg"
                 alt="pedicure"
                 aspectRatio={1/1}
+                layout="fullWidth"
               />
               <h3>Pedicure</h3>
             </div>
@@ -88,14 +90,14 @@ const IndexPage = (data) => {
 
         <div className={styles.promo}>         
           <div className={styles.promoBackground}>
-
-
           </div>
+
           <StaticImage 
             className={styles.promoPhoto}
             src="../images/hairstyle.jpg"
             alt="hairstyle"
-            height={700}
+            imgStyle={{height: "fitContent", objectFit: "cover"}}
+            /* height={700} */
           />
           <div className={styles.promoInfo}>
             <h3>Special offers</h3>
