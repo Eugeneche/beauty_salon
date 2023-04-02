@@ -9,7 +9,7 @@ import MainMenu from "../components/MainMenu/MainMenu"
 import * as styles from "../styles/_index.module.scss"
 
 const About = ({data}) => {
-  console.log(data.allFile.nodes)
+
   return (
     <>
       <MainMenu />
@@ -44,14 +44,14 @@ const About = ({data}) => {
               <h3>News & Deals</h3>
 
               {data.allFile.nodes.map(newsItem => {
-                console.log(newsItem.childMdx.frontmatter.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").replace(/[","]/g, "").toLowerCase())
+                
                 return (
-                  <>
-                    <Link key={newsItem.childMdx.id} to={newsItem.childMdx.frontmatter.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").replace(/[","]/g, "").toLowerCase()}>
+                  <div key={newsItem.childMdx.id}>
+                    <Link to={newsItem.childMdx.frontmatter.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").replace(/[","]/g, "").toLowerCase()}>
                       <h4>{newsItem.childMdx.frontmatter.title}</h4>                   
                     </Link>
                     <p className={styles.blogNewsDate}>{newsItem.childMdx.frontmatter.date}</p>
-                  </>
+                  </div>
                 )
               })}
             </div>

@@ -27,7 +27,6 @@ const ItemServiceTemplate = ({data, children, pageContext}) => {
           <div className={styles.subservicesGrid}>
             {subservices && 
               subservices.map(subservice => {
-                console.log(subservice)
                 return (
                   <div key={subservice.id} className={styles.subserviceItem}>                    
                     <GatsbyImage 
