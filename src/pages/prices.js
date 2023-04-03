@@ -10,7 +10,6 @@ import * as styles from "../styles/_index.module.scss"
 
 const Prices = ({data}) => {
   
-
   const listOfServices = data.file.childrenPriceXlsxServices
   const typesOfServices =  Array.from(new Set(listOfServices.map((obj) => obj.Type)))
 

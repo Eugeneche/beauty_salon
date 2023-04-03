@@ -123,6 +123,7 @@
 /* about */
 
 .about {
+    width: 70%;
 
     p {
         margin-bottom: 20px;
@@ -133,6 +134,7 @@
     background: #f5f5f5;
     width: 100%;
     height: fit-content;
+    padding-bottom: 50px;
 
     .container {
         display: grid;
@@ -201,12 +203,12 @@
 /* prices */
 
 .prices {
-    width: 60%;
+    width: calc(100px + 65vw);
+    max-width: 800px;
 
     .block-type {
         background: #fbfbfb;
-        margin-bottom: 50px;
-        padding: 10px;
+        margin: 0 -10px 50px;
 
         h3 {
             margin-top: 0;
@@ -224,7 +226,8 @@
         .service {
             list-style: none;
             display: grid;
-            grid-template-columns: 90% 10%;
+            grid-template-columns: 86% 10%;
+            column-gap: 4%;
             padding: 3px 10px;
 
             span:nth-child(2) {
@@ -243,11 +246,12 @@
 /* contacts */
 
 .contacts-block {
-    display: flex;
+    display: grid;
+    grid-template-columns: 60% 40%;
     margin-bottom: 50px;
 
     .contacts {
-        width: 40%;  
+        /* width: 40%;  */ 
 
         li {
             list-style: none;
@@ -352,6 +356,17 @@
             padding: 0 3%;
         }
     }
+
+    .about {
+        width: 80%;
+    }
+
+    .blog {
+
+        .container {
+            padding: 0;
+        }
+    }
 }
 
 @media screen and (max-width: 760px) {
@@ -374,6 +389,20 @@
                 margin: 10px 0 30px;
             }
         }
+    }
+
+    .blog {
+
+        .container {
+            grid-template-columns: 100%;
+                
+            .blog-image-container::after {
+                width: 0;
+                height: 0;
+                background-color: transparent;
+            }
+        }
+
     }
 }
 
@@ -424,6 +453,15 @@
             z-index: 2;
         }
     }
+
+    .about {
+        width: 90%;
+    }
+
+    .contacts-block {
+        grid-template-columns: 80%; 
+        justify-content: center;  
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -435,9 +473,15 @@
         .service-image-item {
             width: 95%;
             margin: auto;
-
-
         }
+    }
+
+    .about {
+        width: 97%;
+    }
+
+    .contacts-block {
+        grid-template-columns: 100%; 
     }
 }
 

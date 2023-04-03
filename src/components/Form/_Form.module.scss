@@ -1,9 +1,9 @@
 @import '../../styles/vars';
 
 .form {
-    width: 60%;
-    /* margin: auto; */
+    width: 100%;
     box-sizing: content-box;
+    margin-bottom: 30px;
 
     .fields {
         display: grid;
@@ -75,16 +75,16 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     
     .form  {
         width: 80%;
     }
-}
+} */
 
-@media screen and (max-width: 550px) {
+/* @media screen and (max-width: 568px) {
     
     .form  {
         width: 100%;
     }
-}
+} */
