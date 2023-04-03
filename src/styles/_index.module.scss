@@ -291,6 +291,7 @@
     grid-template-columns: 48% 48%;
     gap: 30px 4%;
     margin-bottom: 50px;
+    padding: 0 30px;
 
     .subservice-item {
         position: relative;
@@ -299,19 +300,21 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            width: max-content;           
+            transform: translate(-50%, -50%);          
             color: #ffffff;
             font-size: 26px;
             background: #cf666680;
-            padding: 0 12px;
+            padding: 0px 12px 3px;
             border-radius: 8px;
-            text-align: center;         
+            text-align: center;   
+            line-height: normal;
         }
     }
 }
 
 .service-description {
+    width: 90%;
+    margin: auto;
     margin-bottom: 50px;
     
     p {
@@ -404,6 +407,19 @@
         }
 
     }
+
+    .subservices-grid {
+
+        .subservice-item {
+
+            .subservice-name {
+                font-size: 3.5vw;
+            }
+        }
+
+    }
+
+
 }
 
 @media screen and (max-width: 568px) {
@@ -462,6 +478,33 @@
         grid-template-columns: 80%; 
         justify-content: center;  
     }
+
+    .subservices-grid {
+        grid-template-columns: 10%;
+        justify-content: center;
+        row-gap: 10px;
+        margin: 10vw 0 11vw;
+
+        .subservice-item {
+            margin-top: -5vw;
+
+            .subservice-name {
+                font-size: 4vw;
+            }
+        }
+
+
+    }
+
+    .subservice-item:nth-child(odd) {
+        margin-left: -37vw;
+    }
+
+    .subservice-item:nth-child(even) {
+        margin-right: -37vw;
+    }
+
+
 }
 
 @media screen and (max-width: 480px) {

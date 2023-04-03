@@ -53,20 +53,20 @@ const MainMenu = () => {
           <Link onClick={() => setIsShow(false)} className={styles.logo} to="/"><img src={logo} alt="logo"></img></Link>
           <div className={styles.items}>
             <Link onClick={() => setIsShow(false)} className={styles.item} to="/">HOME</Link>
-            <Link className={styles.item} to="/about">about</Link>
+            <Link onClick={() => setIsShow(false)} className={styles.item} to="/about">about</Link>
             <div className={styles.services}>
 
               
               {servicesCategories.map(cat => {
                 const url = cat.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()
-                return <Link key={cat.relativeDirectory} className={styles.subItem} to={"/"+url}>
+                return <Link onClick={() => setIsShow(false)} key={cat.relativeDirectory} className={styles.subItem} to={"/"+url}>
                     {cat.relativeDirectory}
                   </Link>
               })}
               
             </div>
-            <Link className={styles.item} to="/prices">prices</Link>
-            <Link className={styles.item} to="/contacts">contacts</Link>
+            <Link onClick={() => setIsShow(false)} className={styles.item} to="/prices">prices</Link>
+            <Link onClick={() => setIsShow(false)} className={styles.item} to="/contacts">contacts</Link>
           </div>         
         </nav>
       </div>
