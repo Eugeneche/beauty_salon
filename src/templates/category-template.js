@@ -14,8 +14,6 @@ const CategoryTemplate = ({data, children, pageContext}) => {
   const directory = new RegExp(`${pageContext.directory}`)
   const nestedProjects = data.allFile.nodes.filter(node => directory.test(node.relativeDirectory))
 
-  //console.log(directory)
-  //console.log(path)
   return (
     <>
       <MainMenu />
@@ -26,9 +24,9 @@ const CategoryTemplate = ({data, children, pageContext}) => {
           style={{width: "100%", maxHeight: "400px", marginBottom: "50px"}}
         />
         <div className={styles.container}>
-          <h1>{pageContext.directory}</h1>
+          <h1 className={styles.categoryPageTitle}>{pageContext.directory}</h1>
           <div className={styles.categoryServicesGrid}>
-            <div>
+            <div className={styles.categoryServicesList}>
               {nestedProjects.map(project => {
                 return (
                   <div key={project.id}>
@@ -50,13 +48,12 @@ const CategoryTemplate = ({data, children, pageContext}) => {
           </div>
         </div>
         
-
       </Layout>
     </>
   )
 }
 
-export const Head = () => <Seo title="Using DSG" />
+export const Head = ({pageContext}) => <Seo title={pageContext.directory} />
 
 export default CategoryTemplate
 

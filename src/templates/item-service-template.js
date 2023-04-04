@@ -48,7 +48,7 @@ const ItemServiceTemplate = ({data, children, pageContext}) => {
   )
 }
 
-export const Head = () => <Seo title="Using DSG" />
+export const Head = ({data}) => <Seo title={data.mdx.frontmatter.title} />
 
 export default ItemServiceTemplate
 

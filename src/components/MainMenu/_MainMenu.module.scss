@@ -84,50 +84,52 @@ button {
     right: 0;
     background: #2b2b2b67;
     z-index: 20;
+    transition: all ease 1s;
 
-    .mobile-menu-background {
+    
+}
+
+.mobile-menu-background {
+    position: fixed;
+    background: #ffffff;
+    top: 5%;
+    padding: 10vh 0;
+    text-align: center;
+    overflow-y: scroll;
+    /* transition: all ease 0.5s; */
+    z-index: 20;
+
+    .close {
         position: absolute;
-        background: white;
-        top: 5%;
-        bottom: 5%;
-        left: 10%;
-        right: 10%;
-        padding: 10vh 0;
-        text-align: center;
-        overflow-y: scroll;
+        left: 20px;
+        top: 20px;
+        height: 35px;
+    }
 
-        .close {
-            position: absolute;
-            left: 20px;
-            top: 20px;
-            height: 50px;
-        }
+    .logo {
 
-        .logo {
+        img {
+            margin-bottom: 20px;
+        }           
+    }
 
-            img {
-                margin-bottom: 20px;
-            }           
-        }
+    .item {
+        color: #333333;
+        text-transform: uppercase;
+        font-size: 18px;
+        display: block;
+        width: max-content;
+        margin: 0 auto 10px;
+    }
 
-        .item {
-            color: #333333;
-            text-transform: uppercase;
-            font-size: 18px;
-            display: block;
-            width: max-content;
-            margin: 0 auto 10px;
-        }
-
-        .sub-item {
-            color: #898787;
-            text-transform: uppercase;
-            font-size: 16px;
-            display: block;
-            width: max-content;
-            margin: auto;
-            margin: 0 auto 7px;
-        }
+    .sub-item {
+        color: #898787;
+        text-transform: uppercase;
+        font-size: 16px;
+        display: block;
+        width: max-content;
+        margin: auto;
+        margin: 0 auto 7px;
     }
 }
 

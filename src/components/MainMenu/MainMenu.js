@@ -23,6 +23,18 @@ const MainMenu = () => {
   `)
 
   const servicesCategories = data.allFile.nodes
+  const styleBcShow = {
+    left: "10%",
+    height: "90vh",
+    right: "10%",
+    transition: "all ease 0.5s"
+  }
+
+  const styleBcHide = {
+    right: "100%",
+    height: "0vh",
+    transition: "all ease 0.3s"
+  }
 
   return (
     <>
@@ -44,37 +56,38 @@ const MainMenu = () => {
         </div>
         <Link className={styles.logo} to="/"><img src={logo} alt="logo"></img></Link>
       </nav>
-      
-      <div className={styles.mobileMenuShadow} style={isShow ? {display: "block"} : {display: "none"}}>
-        <nav className={styles.mobileMenuBackground}>
-          <button onClick={() => setIsShow(false)}>
-            <img className={styles.close} src={close} alt="close menu icon"></img>
-          </button>
-          <Link onClick={() => setIsShow(false)} className={styles.logo} to="/"><img src={logo} alt="logo"></img></Link>
-          <div className={styles.items}>
-            <Link onClick={() => setIsShow(false)} className={styles.item} to="/">HOME</Link>
-            <Link onClick={() => setIsShow(false)} className={styles.item} to="/about">about</Link>
-            <div className={styles.services}>
-
-              
-              {servicesCategories.map(cat => {
-                const url = cat.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()
-                return <Link onClick={() => setIsShow(false)} key={cat.relativeDirectory} className={styles.subItem} to={"/"+url}>
-                    {cat.relativeDirectory}
-                  </Link>
-              })}
-              
-            </div>
-            <Link onClick={() => setIsShow(false)} className={styles.item} to="/prices">prices</Link>
-            <Link onClick={() => setIsShow(false)} className={styles.item} to="/contacts">contacts</Link>
-          </div>         
-        </nav>
-      </div>
 
       <nav className={styles.mobileMenu}>
         <Link className={styles.logo} to="/"><img src={logo} alt="logo"></img></Link>
         <button onClick={() => setIsShow(true)} className={styles.hamburger}><img src={hamburger} alt="hamburger menu icon"></img></button>
       </nav>
+      
+      <div className={styles.mobileMenuShadow} style={isShow ? {display: "block"} : {display: "none"}}>        
+      </div>
+
+      <nav className={styles.mobileMenuBackground} style={isShow ? styleBcShow : styleBcHide}>
+        <button onClick={() => setIsShow(false)}>
+          <img className={styles.close} src={close} alt="close menu icon"></img>
+        </button>
+        <Link onClick={() => setIsShow(false)} className={styles.logo} to="/"><img src={logo} alt="logo"></img></Link>
+        <div className={styles.items}>
+          <Link onClick={() => setIsShow(false)} className={styles.item} to="/">HOME</Link>
+          <Link onClick={() => setIsShow(false)} className={styles.item} to="/about">about</Link>
+          <div className={styles.services}>
+            
+            {servicesCategories.map(cat => {
+              const url = cat.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()
+              return <Link onClick={() => setIsShow(false)} key={cat.relativeDirectory} className={styles.subItem} to={"/"+url}>
+                  {cat.relativeDirectory}
+                </Link>
+            })}
+            
+          </div>
+          <Link onClick={() => setIsShow(false)} className={styles.item} to="/prices">prices</Link>
+          <Link onClick={() => setIsShow(false)} className={styles.item} to="/contacts">contacts</Link>
+        </div>         
+      </nav>
+
     </>
   )
 }
