@@ -3,7 +3,9 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import * as styles from "./_MainMenu.module.scss"
 import NavLink from "./NavLink"
 import logo from "../../images/logo_black.svg"
+import logoStroke from "../../images/logo_black_stroke.svg"
 import hamburger from "../../images/menu.svg"
+import hamburgerStroke from "../../images/menu_stroke.svg"
 import close from "../../images/close.svg"
 
 const MainMenu = () => {
@@ -33,12 +35,13 @@ const MainMenu = () => {
   const styleBcHide = {
     right: "100%",
     height: "0vh",
-    transition: "all ease 0.3s"
+    transition: "all ease 0.1s"
   }
 
   return (
     <>
       <nav className={styles.desktopMenu}>
+        <div className={styles.desktopMenuContainer}>
         <div className={styles.items}>
           <NavLink to="/">HOME</NavLink>
           <NavLink to="/about">about</NavLink>
@@ -55,11 +58,12 @@ const MainMenu = () => {
           <NavLink to="/contacts">contacts</NavLink>
         </div>
         <Link className={styles.logo} to="/"><img src={logo} alt="logo"></img></Link>
+        </div>
       </nav>
 
       <nav className={styles.mobileMenu}>
-        <Link className={styles.logo} to="/"><img src={logo} alt="logo"></img></Link>
-        <button onClick={() => setIsShow(true)} className={styles.hamburger}><img src={hamburger} alt="hamburger menu icon"></img></button>
+        <Link className={styles.logo} to="/"><img src={logoStroke} alt="logo"></img></Link>
+        <button onClick={() => setIsShow(true)} className={styles.hamburger}><img src={hamburgerStroke} alt="hamburger menu icon"></img></button>
       </nav>
       
       <div className={styles.mobileMenuShadow} style={isShow ? {display: "block"} : {display: "none"}}>        

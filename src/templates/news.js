@@ -10,8 +10,6 @@ import * as styles from "../styles/_index.module.scss"
 
 const CategoryTemplate = ({data, children, pageContext}) => {
 
-  console.log(pageContext)
-  console.log(data)
   return (
     <>
       <MainMenu />
@@ -20,16 +18,17 @@ const CategoryTemplate = ({data, children, pageContext}) => {
           image={getImage(data.file.childImageSharp.gatsbyImageData)}
           alt="hairstyle"
           height={400}
-          style={{width: "100%", marginBottom: "50px"}}
+          style={{width: "100%", minHeight: "300px", marginBottom: "50px"}}
         />
         <div className={styles.container}>
-          <h1>{data.mdx.frontmatter.title}</h1>
+          <h1 className={styles.newsTitle}>{data.mdx.frontmatter.title}</h1>
           <div className={styles.news}>
             <GatsbyImage 
+              className={styles.newsPhoto}
               image={getImage(data.mdx.frontmatter.image.childImageSharp.gatsbyImageData)}
               alt={`${data.mdx.frontmatter.title} image`}
               height={400}
-              style={{width: "100%", marginBottom: "50px"}}
+              style={{maxWidth: "100%", maxHeight: "300px", margin: "0 auto 50px"}}
             />
             <div>{children}</div>           
           </div>

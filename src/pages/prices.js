@@ -21,7 +21,7 @@ const Prices = ({data}) => {
           src="../images/prices_page.jpg"
           alt="hairstyle"
           height={500}
-          style={{width: "100%", marginBottom: "50px"}}
+          style={{width: "100%", marginBottom: "50px", minHeight: "300px"}}
         />
 
         <div className={[styles.container, styles.prices].join(' ')}>

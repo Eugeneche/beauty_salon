@@ -21,7 +21,7 @@ const CategoryTemplate = ({data, children, pageContext}) => {
         <GatsbyImage 
           image={image}
           alt="hairstyle"
-          style={{width: "100%", maxHeight: "400px", marginBottom: "50px"}}
+          style={{width: "100%", maxHeight: "400px", minHeight: "300px", marginBottom: "50px"}}
         />
         <div className={styles.container}>
           <h1 className={styles.categoryPageTitle}>{pageContext.directory}</h1>

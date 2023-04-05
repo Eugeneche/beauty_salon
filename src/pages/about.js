@@ -18,7 +18,7 @@ const About = ({data}) => {
           src="../images/beauty_products.jpg"
           alt="hairstyle"
           height={400}
-          style={{width: "100%", marginBottom: "50px"}}
+          style={{width: "100%", minHeight: "300px", marginBottom: "50px"}}
         />
 
         <div className={[styles.container, styles.about].join(' ')}>

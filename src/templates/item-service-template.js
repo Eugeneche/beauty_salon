@@ -20,10 +20,10 @@ const ItemServiceTemplate = ({data, children, pageContext}) => {
         <GatsbyImage 
           image={image}
           alt="hairstyle"
-          style={{width: "100%", maxHeight: "500px", marginBottom: "50px"}}
+          style={{width: "100%", maxHeight: "500px", minHeight: "300px", marginBottom: "50px"}}
         />
         <div className={styles.container}>
-          <h1>{pageContext.frontmatter.title}</h1>
+          <h1 className={styles.projectPageTitle}>{pageContext.frontmatter.title}</h1>
           <div className={styles.subservicesGrid}>
             {subservices && 
               subservices.map(subservice => {
