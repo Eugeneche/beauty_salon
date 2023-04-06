@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
@@ -46,44 +46,52 @@ const IndexPage = (data) => {
 
           <div className={styles.servicesImages}>
             <div className={styles.serviceImageItem}>
-              <StaticImage 
-                className={styles.serviceImage}
-                src="../images/makeup.jpg"
-                alt="make up"
-                aspectRatio={1/1}
-                layout="fullWidth"
-              />
-              <h3>Make up</h3>
+              <Link to="/makeup/">
+                <StaticImage 
+                  className={styles.serviceImage}
+                  src="../images/makeup.jpg"
+                  alt="make up"
+                  aspectRatio={1/1}
+                  layout="fullWidth"
+                />
+              </Link>
+              <Link to="/makeup/"><h3>Make up</h3></Link>
             </div>
             <div className={styles.serviceImageItem}>
-              <StaticImage 
-                className={styles.serviceImage}
-                src="../images/eyelash_extensions.jpg"
-                alt="Eyelash Extensions"
-                aspectRatio={1/1}
-                layout="fullWidth"
-              />
-              <h3>Eyelash Extensions</h3>
+              <Link to="/lashes-and-brows/eyelash-extensions/">
+                <StaticImage 
+                  className={styles.serviceImage}
+                  src="../images/eyelash_extensions.jpg"
+                  alt="Eyelash Extensions"
+                  aspectRatio={1/1}
+                  layout="fullWidth"
+                />
+              </Link>
+              <Link to="/lashes-and-brows/eyelash-extensions/"><h3>Eyelash Extensions</h3></Link>
             </div>
             <div className={styles.serviceImageItem}>
-              <StaticImage 
-                className={styles.serviceImage}
-                src="../images/skin_treatment.jpg"
-                alt="skin treatment"
-                aspectRatio={1/1}
-                layout="fullWidth"
-              />
-              <h3>Skin treatment</h3>
+              <Link to="/skin-treatment/">
+                <StaticImage 
+                  className={styles.serviceImage}
+                  src="../images/skin_treatment.jpg"
+                  alt="skin treatment"
+                  aspectRatio={1/1}
+                  layout="fullWidth"
+                />
+              </Link>
+              <Link to="/skin-treatment/"><h3>Skin treatment</h3></Link>
             </div>
             <div className={styles.serviceImageItem}>
-              <StaticImage 
-                className={styles.serviceImage}
-                src="../images/pedicure.jpg"
-                alt="pedicure"
-                aspectRatio={1/1}
-                layout="fullWidth"
-              />
-              <h3>Pedicure</h3>
+              <Link to="/nail-bar/pedicure/">
+                <StaticImage 
+                  className={styles.serviceImage}
+                  src="../images/pedicure.jpg"
+                  alt="pedicure"
+                  aspectRatio={1/1}
+                  layout="fullWidth"
+                />
+              </Link>
+              <Link to="/nail-bar/pedicure/"><h3>Pedicure</h3></Link>
             </div>
           </div>
         </div>

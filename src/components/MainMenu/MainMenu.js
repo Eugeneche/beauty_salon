@@ -35,7 +35,7 @@ const MainMenu = () => {
   const styleBcHide = {
     right: "100%",
     height: "0vh",
-    transition: "all ease 0.1s"
+    /* transition: "all ease 0.1s" */
   }
 
   return (
