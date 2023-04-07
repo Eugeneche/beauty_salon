@@ -27,14 +27,16 @@ const MainMenu = () => {
   const servicesCategories = data.allFile.nodes
   const styleBcShow = {
     left: "10%",
-    height: "90vh",
+    /* height: "90vh", */
+    bottom: "5%",
     right: "10%",
     transition: "all ease 0.5s"
   }
 
   const styleBcHide = {
     right: "100%",
-    height: "0vh",
+    bottom: "95%",
+    /* height: "0vh", */
     /* transition: "all ease 0.1s" */
   }
 
@@ -42,21 +44,21 @@ const MainMenu = () => {
     <>
       <nav className={styles.desktopMenu}>
         <div className={styles.desktopMenuContainer}>
-        <div className={styles.items}>
-          <NavLink to="/">HOME</NavLink>
-          <NavLink to="/about">about</NavLink>
-          <div className={styles.services}>
+        <ul className={styles.items}>
+          <li><NavLink /* className={styles.menuItem} */ to="/">HOME</NavLink></li>
+          <li><NavLink /* className={styles.menuItem} */ to="/about">about</NavLink></li>
+          <div className={styles.services} /* className={[styles.services, styles.menuItem].join(' ')} */>
             services
-            <ul className={styles.servicesCategories}>
+            <ul className={[styles.servicesCategories, styles.menuItem].join(' ')}>
               {servicesCategories.map(cat => {
                 const url = cat.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()
                 return <li key={cat.relativeDirectory}><Link to={"/"+url}>{cat.relativeDirectory}</Link></li>
               })}
             </ul>
           </div>
-          <NavLink to="/prices">prices</NavLink>
-          <NavLink to="/contacts">contacts</NavLink>
-        </div>
+          <li><NavLink className={styles.menuItem} to="/prices">prices</NavLink></li>
+          <li><NavLink className={styles.menuItem} to="/contacts">contacts</NavLink></li>
+        </ul>
         <Link className={styles.logo} to="/"><img src={logo} alt="logo"></img></Link>
         </div>
       </nav>

@@ -7,6 +7,7 @@ import MainMenu from "../components/MainMenu/MainMenu"
 import Seo from "../components/seo"
 
 import * as styles from "../styles/_index.module.scss"
+import Form from "../components/Form/Form"
 
 const ItemServiceTemplate = ({data, children, pageContext}) => {
   
@@ -41,6 +42,12 @@ const ItemServiceTemplate = ({data, children, pageContext}) => {
           </div>
           <div className={styles.serviceDescription}>
             {children}
+          </div>
+        </div>
+
+        <div className={styles.formBlock}>
+          <div className={styles.formPage}>
+            <Form />
           </div>
         </div>
       </Layout>

@@ -270,7 +270,7 @@
 
 .category-services-grid {
     display: grid;
-    grid-template-columns: 15% 82%;
+    grid-template-columns: 20% 77%;
     column-gap: 3%;
 
     .service-title {
@@ -279,6 +279,8 @@
     }
 
     .service-description {
+        width: 100%;
+        margin: 0 auto;
 
         p:nth-child(1) {
             margin-top: 0;
@@ -336,6 +338,17 @@
     
     p {
         margin: 20px 0;
+    }
+}
+
+.form-block {
+    width: 100%;
+    background: #ebebeb;
+    padding: 30px 0;
+
+    .form-page {
+        width: 60%;
+        margin: auto;
     }
 }
 
@@ -455,7 +468,6 @@
                 font-size: 3.5vw;
             }
         }
-
     }
 
     .news-title {
@@ -529,31 +541,12 @@
 
     .contacts-block {
         grid-template-columns: 80%; 
-        justify-content: center;  
-    }
-
-/*     .subservices-grid {
-        grid-template-columns: 10%;
         justify-content: center;
-        row-gap: 10px;
-        margin: 10vw auto 11vw;
 
-        .subservice-item {
-            margin-top: -5vw;
-
-            .subservice-name {
-                font-size: 4vw;
-            }
+        .contacts {
+            margin-top: 30px;
         }
     }
-
-    .subservice-item:nth-child(odd) {
-        margin-left: -37vw;
-    }
-
-    .subservice-item:nth-child(even) {
-        margin-right: -37vw;
-    } */
 
     .category-services-grid {
         grid-template-columns: 100%;
@@ -561,6 +554,13 @@
 
     .category-page-title {
         width: 80vw;
+    }
+
+    .form-block {
+
+        .form-page {
+            width: 90%;
+        }
     }
 
 }
