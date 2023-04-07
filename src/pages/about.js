@@ -67,7 +67,10 @@ export default About
 
 export const query = graphql`
 query {
-  allFile(filter: {sourceInstanceName: {eq: "blog"}, extension: {eq: "mdx"}}) {
+  allFile(
+    filter: {sourceInstanceName: {eq: "blog"}, extension: {eq: "mdx"}}
+    sort: {childMdx: {frontmatter: {date: DESC}}}
+  ) {
     nodes {
       childMdx {
         frontmatter {
