@@ -12,7 +12,7 @@ module.exports = {
     title: `Beauty salon`,
     description: `Beauty Salon provides Waxing, Laser Hair Removal, Massage, Facials, Manicure, Pedicure, Threading, Eyelash Extension, Tinting, Spray Tan, Body Scrub.`,
     author: `@eugeneche`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    siteUrl: `https://sophie-style.netlify.app`,
   },
   plugins: [
     `gatsby-plugin-image`,

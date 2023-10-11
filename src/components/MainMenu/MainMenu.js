@@ -4,7 +4,7 @@ import * as styles from "./_MainMenu.module.scss"
 import NavLink from "./NavLink"
 import logo from "../../images/logo_black.svg"
 import logoStroke from "../../images/logo_black_stroke.svg"
-import hamburger from "../../images/menu.svg"
+//import hamburger from "../../images/menu.svg"
 import hamburgerStroke from "../../images/menu_stroke.svg"
 import close from "../../images/close.svg"
 
